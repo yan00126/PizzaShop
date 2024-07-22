@@ -1,2 +1,4 @@
-# PizzaShop
-This repository contains the starter files for the Pizza Shop project. 
+# Pizza Shop
+
+## Objective
+Create a basic Pizza order form with validation.

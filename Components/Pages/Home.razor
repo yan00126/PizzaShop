@@ -1,0 +1,42 @@
+﻿@page "/"
+
+<PageTitle>Pizza Order</PageTitle>
+
+<h1 class="display-4 text-center p-5">Pizza Order</h1>
+
+<form class="form bg-light border border-1 p-5">
+  @if (success)
+  {
+  <div class="alert alert-success">@successMessage</div>
+  }
+  <div class="form-group mb-3">
+    <label class="form-label" for="size">Size</label>
+    <select class="form-select" id="size">
+      <option value="">Select a size</option>
+      @foreach (var size in sizes)
+      {
+        <option value="@size">@size</option>
+      }
+    </select>
+  </div>
+
+  <div class="form-group mb-3">
+    <p>Choose up to 3 toppings</p>
+    @foreach (var topping in toppings)
+    {
+      <div class="form-check">
+        <input type="checkbox" class="form-check-input" />
+        <label class="form-check-label">@topping</label>
+      </div>
+    }
+  </div>
+
+  <button class="btn btn-primary">Order Pizza</button>
+</form>
+
+@code {
+  private static List<string> sizes = ["Small", "Medium", "Large"];
+  private static List<string> toppings = ["Pepperoni", "Sausage", "Ham", "Mushrooms", "Onions", "Peppers"];
+  private bool success = false;
+  private string successMessage = "";
+}
